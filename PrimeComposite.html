@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime/Composite Number Checker</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+            font-family: Verdana; /* Font style as Verdana for the entire document */
+            padding: 0;
+            margin: 20px;
+            font-size: 22px;
+            color: aliceblue;
+        }
+
+        .wrapper {
+            background-color: cornflowerblue;
+        }
+
+        input {
+            height: 20px;
+        }
+
+        label {
+            color: aliceblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Prime/Composite Number Checker </h2>
+    <form id="prime-form">
+        <label for="number">Enter a Number:</label>
+        <input type="number" id="number" name="number" min="0" required>
+        <br><br>
+        <input type="submit" value="Check Prime or Composite">
+    </form>
+    <div id="prime-result"></div>
+
+    <script>
+        document.getElementById("prime-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const inputNumber = parseInt(document.getElementById("number").value);
+
+            if (isNaN(inputNumber) || inputNumber < 0) {
+                document.getElementById("prime-result").innerHTML = "Please enter a valid positive number.";
+            } else if (inputNumber === 0 || inputNumber === 1) {
+                document.getElementById("prime-result").innerHTML = inputNumber + " is neither a prime number nor a composite number.";
+            } else {
+                if (isPrime(inputNumber)) {
+                    document.getElementById("prime-result").innerHTML = inputNumber + " is a prime number.";
+                } else {
+                    document.getElementById("prime-result").innerHTML = inputNumber + " is a composite number.";
+                }
+            }
+        });
+
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

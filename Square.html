@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>JavaScript to print the first N square numbers!</title>
+<body style="background-color:royalblue;">
+<head>
+<style>
+    .wrapper{
+      padding:0px;
+      margin: 20px;
+      font-size: 22px;
+      background-color: royalblue;
+      color: white;
+    }
+    input{
+      height: 20px;
+    }
+   
+    label{
+      color: white;
+      font-weight: bold;
+    }
+   
+  </style>
+<style>
+        .wrapper {
+            font-family: Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+        <h3>JavaScript to print the first N Square numbers</h3>
+        <h4>Welcome to the square numbers category.</h4>
+        <label for="totalsquare">First</label>
+        <input type="number" min="0" id="totalsquare" value="10">
+        <label for="totalsquare">Square Number(s)</label><br><br>
+        <input type="button" onclick="printSquareNum()" value="Print Square Numbers">
+        <div id="result"></div>
+    </div>
+
+    <script>
+       function printSquareNum() {
+    var totalSquare = parseInt(document.getElementById("totalsquare").value);
+    var result = document.getElementById("result");
+    result.innerHTML = ""; // Clear previous result
+
+    if (isNaN(totalSquare) || totalSquare <= 0) {
+        result.innerHTML = "Please enter a valid positive number.";
+        return;
+    }
+
+    var squareNumbers = [];
+    for (var i = 1; squareNumbers.length < totalSquare; i++) {
+        squareNumbers.push(i * i); // Push the square of the number
+    }
+
+    result.innerHTML = "The first " + totalSquare + " square numbers are: " + squareNumbers.join(", ");
+}
+
+
+</script>
+</body>
+</html>

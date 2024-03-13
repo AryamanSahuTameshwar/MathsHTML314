@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>JavaScript to print the first N cube numbers!</title>
+<body style="background-color:steelblue;">
+<head>
+<style>
+    .wrapper{
+      padding:0px;
+      margin: 20px;
+      font-size: 22px;
+      background-color: steelblue;
+      color: white;
+    }
+    input{
+      height: 20px;
+    }
+   
+    label{
+      color: white;
+      font-weight: bold;
+    }
+   
+  </style>
+<style>
+        .wrapper {
+            font-family: Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h3>JavaScript to print the first N Cube numbers</h3>
+    <h4>Welcome to the cube numbers category.</h4>
+    <label for="totalcube">First</label>
+    <input type="number" min="0" id="totalcube" value="10">
+    <label for="totalcube">Cube Number(s)</label><br><br>
+    <input type="button" onclick="printCubeNum()" value="Print Cube Numbers">
+    <div id="result"></div>
+</div>
+
+<script>
+    function printCubeNum() {
+        var totalCube = parseInt(document.getElementById("totalcube").value);
+        var result = document.getElementById("result");
+        result.innerHTML = ""; // Clear previous result
+
+        if (isNaN(totalCube) || totalCube <= 0) {
+            result.innerHTML = "Please enter a valid positive number.";
+            return;
+        }
+
+        var cubeNumbers = [];
+        for (var i = 1; cubeNumbers.length < totalCube; i++) {
+            cubeNumbers.push(i ** 3); // Push the cube of the number
+        }
+
+        result.innerHTML = "The first " + totalCube + " cube numbers are: " + cubeNumbers.join(", ");
+    }
+</script>
+
+</body>
+</html>

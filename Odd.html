@@ -1,0 +1,62 @@
+<!DOCTYPE.html>
+<html>
+<head>
+  <title>JavaScript to print Odd Numbers within a Range!</title>
+<body style="background-color:dodgerblue;">
+  <style>
+    .wrapper{
+      padding:0px;
+      margin: 20px;
+      font-size: 22px;
+      background-color: dodgerblue;
+      color: white;
+    }
+    input{
+      height: 20px;
+    }
+   
+    label{
+      color: white;
+      font-weight: bold;
+    }
+   
+  </style>
+   
+  <style>
+        .wrapper {
+            font-family: Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h3>JavaScript to print the first N Odd numbers</h3>
+        <h4>Welcome to the odd numbers category.</h4>
+        <label for="totalodd">First</label>
+        <input type="number" min="0" id="totalodd" value="10">
+        <label for="totalodd">Odd Number(s)</label><br><br>
+        <input type="button" onclick="printOddNum()" value="Print Odd Numbers">
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function printOddNum() {
+            var totalOdd = parseInt(document.getElementById("totalodd").value);
+            var result = document.getElementById("result");
+            result.innerHTML = ""; // Clear previous result
+
+            if (isNaN(totalOdd) || totalOdd < 0) {
+                result.innerHTML = "Please enter a valid positive number.";
+                return;
+            }
+
+            var oddNumbers = [];
+            for (var i = 1; oddNumbers.length < totalOdd; i++) {
+                if (i % 2 !== 0) {
+                    oddNumbers.push(i);
+                }
+            }
+
+            result.innerHTML = "The first " + totalOdd + " odd numbers are: " + oddNumbers.join(", ");
+        }
+    </script>
